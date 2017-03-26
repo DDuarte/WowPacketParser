@@ -1,48 +1,27 @@
 env:
   global:
-    # COVERITY_SCAN_TOKEN
-    - secure: "PFk+ufo8ufRuVlit6dbs99hYcBhp0G/G/QgMCkKaMy0mUJX7FWG6jkJz1tRkp4xfOEzbXI3aB55Vi5GfSHn003XVNiQ/ZZK/A0l9IlO8VrULzvm9hLKBCoNfZ1EbbEDy10ArC7nFNFYl8q23e3K7eRAONDWzhHaWR3t/JRARsrg="
-
+  - secure: F0qRHj+U6945RwFJ8zhCTRf6LTJZ4zs/ndutQnXACBLWKKyCuvmM208owFVLvCFhgJVrbHs2uEyULGZN987SeIb7of2KsiscA/srpbMxGukLn6dBiRNH5FGU62/QfFFKpQLES/QY1L+w4lYIm0cH7TwA195AagITThMuhFADrzQ=
 dist: trusty
 sudo: false
-
 language: csharp
 solution: WowPacketParser.sln
-
 matrix:
   include:
-    - dotnet: 1.0.1
-      mono: none
-      env: DOTNETCORE=1
-    - mono: latest
+  - dotnet: 1.0.1
+    mono: none
+    env: DOTNETCORE=1
+  - mono: latest
   allow_failures:
-    - dotnet: 1.0.1
-
+  - dotnet: 1.0.1
 install: ./scripts/travis-install.sh
 script: ./scripts/travis-build.sh
-
 addons:
   coverity_scan:
-
-    # GitHub project metadata
-    # ** specific to your project **
     project:
       name: TrinityCore/WowPacketParser
       version: 1.0
       description: WPP
-
-    # Where email notification of build analysis results will be sent
     notification_email: dnpd.dd@gmail.com
-
-    # Commands to prepare for build_command
-    # ** likely specific to your build **
     build_command_prepend: 
-
-    # The command that will be added as an argument to "cov-build" to compile your project for analysis,
-    # ** likely specific to your build **
     build_command: xbuild /p:TargetFrameworkVersion="v4.6"
-
-    # Pattern to match selecting branches that will run analysis. We recommend leaving this set to 'coverity_scan'.
-    # Take care in resource usage, and consider the build frequency allowances per
-    #   https://scan.coverity.com/faq#frequency
     branch_pattern: master
