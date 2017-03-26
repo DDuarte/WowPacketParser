@@ -1,6 +1,6 @@
 env:
   global:
-  - secure: F0qRHj+U6945RwFJ8zhCTRf6LTJZ4zs/ndutQnXACBLWKKyCuvmM208owFVLvCFhgJVrbHs2uEyULGZN987SeIb7of2KsiscA/srpbMxGukLn6dBiRNH5FGU62/QfFFKpQLES/QY1L+w4lYIm0cH7TwA195AagITThMuhFADrzQ=
+  - COVERITY_SCAN_TOKEN=G_KYq49p4CiHkumRjFOrRw
 dist: trusty
 sudo: false
 language: csharp
